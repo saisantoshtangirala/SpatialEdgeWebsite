@@ -1,0 +1,18 @@
+[
+  {
+    "CourseID": 1,
+    "CourseName": "QGIS Fundamentals",
+    "Duration": "6 weeks",
+    "OriginalPrice": 9999,
+    "DiscountedPrice": 6999,
+    "Description": "Replace with your real course description."
+  },
+  {
+    "CourseID": 2,
+    "CourseName": "ArcGIS Pro Mastery",
+    "Duration": "6 weeks",
+    "OriginalPrice": 9999,
+    "DiscountedPrice": 6999,
+    "Description": "Replace with your real course description."
+  }
+]

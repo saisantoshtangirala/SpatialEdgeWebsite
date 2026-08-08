@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Course Details | SpatialEdge Solutions</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><img src="logo-tagline.png" alt="SpatialEdge Solutions - Precision in Every Pixel"></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="training.html">Online Training</a>
+    <a href="contact.html">Enquire Form</a>
+    <a href="index.html#contact-info">Contact Info</a>
+    <a href="org-structure.html">About</a>
+    <a href="organisation-structure.html">Organisation Structure</a>
+<a href="careers.html">Careers</a>
+  </nav>
+</header>
+
+<section class="hero" id="courseHero">
+  <a href="training.html" class="back-link">&larr; Back to Online Training</a>
+  <h1 id="courseTitleHeading">Loading...</h1>
+  <p id="coursePriceLine"></p>
+  <button id="heroEnrollBtn" class="btn" style="display:none;">Enroll Now</button>
+</section>
+
+<div class="course-detail-wrapper">
+  <div id="courseBody" class="course-content">
+    <p>Loading course details...</p>
+  </div>
+  <div style="text-align:center; margin-top:30px;">
+    <a href="training.html" class="back-link">&larr; Back to Online Training</a>
+  </div>
+</div>
+
+<!-- Enrollment Form Modal -->
+<div id="enrollModal" class="modal-overlay">
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeEnrollModal()">&times;</span>
+    <h2>Enroll in <span id="enrollCourseName"></span></h2>
+    <form id="enrollForm" class="contact-form" style="margin: 20px 0 0;">
+      <input type="text" id="enrollFullName" placeholder="Full Name" required>
+      <input type="text" id="enrollOrg" placeholder="Name of Organization">
+      <input type="tel" id="enrollPhone" placeholder="Phone Number" required>
+      <input type="email" id="enrollEmail" placeholder="Registered Email ID" required>
+      <label style="display:block; margin-bottom:8px; font-weight:600; color:var(--navy);">
+        PhonePe Payment Receipt (JPEG/PNG)
+      </label>
+      <input type="file" id="enrollReceipt" accept=".jpg,.jpeg,.png" required style="margin-bottom:14px;">
+      <button type="submit">Submit Enrollment</button>
+      <p id="enrollStatus" style="margin-top:14px; text-align:center;"></p>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <img src="logo-tagline.png" alt="SpatialEdge Solutions - Precision in Every Pixel" class="footer-logo">
+  <p>&copy; 2026 SpatialEdge Solutions. All rights reserved.</p>
+</footer>
+
+<script>
+  const API_URL = "/api/courses";
+  const ENROLL_URL = "/api/enroll";
+
+  // Maps each CourseID to a URL-friendly slug and its content file
+  const courseSlugs = {
+    1: "qgis",
+    2: "arcgis-pro",
+    3: "remote-sensing",
+    4: "gee",
+    5: "python-gis",
+    6: "gps-survey",
+    7: "cartography",
+    8: "spatial-statistics"
+  };
+
+  const enrollableCourses = [1, 2, 3, 4, 5];
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get("course");
+
+  let currentCourse = null;
+
+  async function loadCourse() {
+    try {
+      const response = await fetch(API_URL);
+      const courses = await response.json();
+
+      currentCourse = courses.find(c => courseSlugs[c.CourseID] === slug);
+
+      if (!currentCourse) {
+        document.getElementById("courseTitleHeading").textContent = "Course Not Found";
+        document.getElementById("courseBody").innerHTML = "<p>Sorry, we couldn't find that course. <a href='training.html'>Back to Online Training</a></p>";
+        return;
+      }
+
+      document.getElementById("pageTitle").textContent = currentCourse.CourseName + " | SpatialEdge Solutions";
+      document.getElementById("courseTitleHeading").textContent = currentCourse.CourseName;
+      document.getElementById("coursePriceLine").innerHTML =
+        `${currentCourse.Duration} &nbsp;|&nbsp; <span style="text-decoration:line-through;opacity:0.7;">₹${currentCourse.OriginalPrice}</span> <strong>₹${currentCourse.DiscountedPrice}</strong>`;
+
+      if (enrollableCourses.includes(currentCourse.CourseID)) {
+        const btn = document.getElementById("heroEnrollBtn");
+        btn.style.display = "inline-block";
+        btn.onclick = () => openEnrollModal(currentCourse.CourseName);
+      }
+
+      loadCourseContent();
+    } catch (err) {
+      document.getElementById("courseBody").innerHTML = "<p style='color:red;'>Could not load course. Make sure node server.js is running.</p>";
+      console.error(err);
+    }
+  }
+
+  async function loadCourseContent() {
+    const bodyEl = document.getElementById("courseBody");
+    try {
+      const response = await fetch(`course-content/${slug}.html`);
+      if (!response.ok) throw new Error("No detailed content file yet");
+      const html = await response.text();
+      bodyEl.innerHTML = html;
+    } catch (err) {
+      // Fallback: no detailed write-up uploaded yet for this course
+      bodyEl.innerHTML = `<p>${currentCourse.Description}</p><p style="margin-top:20px; color:#888;">Detailed curriculum coming soon.</p>`;
+    }
+  }
+
+  function openEnrollModal(courseName) {
+    document.getElementById("enrollCourseName").textContent = courseName;
+    document.getElementById("enrollForm").dataset.course = courseName;
+    document.getElementById("enrollModal").classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeEnrollModal() {
+    document.getElementById("enrollModal").classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+
+  document.getElementById("enrollForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const status = document.getElementById("enrollStatus");
+    const formData = new FormData();
+
+    formData.append("courseName", form.dataset.course);
+    formData.append("fullName", document.getElementById("enrollFullName").value);
+    formData.append("organizationName", document.getElementById("enrollOrg").value);
+    formData.append("phoneNumber", document.getElementById("enrollPhone").value);
+    formData.append("email", document.getElementById("enrollEmail").value);
+    formData.append("receipt", document.getElementById("enrollReceipt").files[0]);
+
+    status.style.color = "black";
+    status.textContent = "Submitting...";
+
+    try {
+      const response = await fetch(ENROLL_URL, { method: "POST", body: formData });
+      const result = await response.json();
+
+      if (response.ok) {
+        status.style.color = "green";
+        status.textContent = "Enrollment submitted successfully! We'll contact you soon.";
+        form.reset();
+      } else {
+        status.style.color = "red";
+        status.textContent = result.error || "Something went wrong.";
+      }
+    } catch (err) {
+      status.style.color = "red";
+      status.textContent = "Could not reach the server. Make sure node server.js is running.";
+      console.error(err);
+    }
+  });
+
+  loadCourse();
+</script>
+
+</body>
+</html>

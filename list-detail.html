@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Updates | SpatialEdge Solutions</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><img src="logo-tagline.png" alt="SpatialEdge Solutions - Precision in Every Pixel"></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="training.html">Online Training</a>
+    <a href="contact.html">Enquire Form</a>
+    <a href="index.html#contact-info">Contact Info</a>
+    <a href="org-structure.html">About</a>
+    <a href="organisation-structure.html">Organisation Structure</a>
+<a href="careers.html">Careers</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+  <h1 id="listHeading">Loading...</h1>
+</section>
+
+<div class="list-detail-wrapper">
+  <ul id="listItems" class="full-list"></ul>
+</div>
+
+<div style="text-align:center; padding-bottom:60px;">
+  <a href="index.html" class="back-link">&larr; Back to Home</a>
+</div>
+
+<!-- Detail Modal -->
+<div id="listModal" class="modal-overlay">
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeListModal()">&times;</span>
+    <div id="listModalContent"></div>
+  </div>
+</div>
+
+<footer>
+  <img src="logo-tagline.png" alt="SpatialEdge Solutions - Precision in Every Pixel" class="footer-logo">
+  <p>&copy; 2026 SpatialEdge Solutions. All rights reserved.</p>
+</footer>
+
+<script src="ticker-data.js"></script>
+<script>
+  const typeLabels = {
+    updates: "📢 Updates",
+    notifications: "🔔 Notifications",
+    news: "📰 SpatialEdge News"
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+  const items = tickerItems[type] || [];
+
+  document.getElementById("pageTitle").textContent = (typeLabels[type] || "Updates") + " | SpatialEdge Solutions";
+  document.getElementById("listHeading").textContent = typeLabels[type] || "Updates";
+
+  const listEl = document.getElementById("listItems");
+  items.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    li.onclick = () => openListModal(item);
+    listEl.appendChild(li);
+  });
+
+  function openListModal(text) {
+    const detail = tickerDetails[text] || text;
+    document.getElementById("listModalContent").innerHTML = `<p style="font-size:1.1rem; line-height:1.7;">${detail}</p>`;
+    document.getElementById("listModal").classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeListModal() {
+    document.getElementById("listModal").classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+</script>
+
+</body>
+</html>

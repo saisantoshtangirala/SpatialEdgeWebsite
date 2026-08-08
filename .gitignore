@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+functions/node_modules/
+
+# Secrets — never commit these
+.env
+*firebase-adminsdk*.json
+courses.json
+
+# Firebase CLI local cache/logs
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+.runtimeconfig.json
+
+# Local dev uploads
+uploads/
+
+# Editor
+.vscode/
+
+# Stray/duplicate folder from local dev
+New folder/

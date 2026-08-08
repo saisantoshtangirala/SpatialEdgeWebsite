@@ -1,0 +1,11 @@
+rules_version = '2';
+
+// Receipt uploads go through the Cloud Function (Admin SDK), which bypasses
+// these rules. No direct client access to Storage is needed, so it's locked down.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

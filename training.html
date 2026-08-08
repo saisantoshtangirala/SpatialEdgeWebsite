@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Training | SpatialEdge Solutions</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><img src="logo-tagline.png" alt="SpatialEdge Solutions - Precision in Every Pixel"></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="training.html">Online Training</a>
+    <a href="contact.html">Enquire Form</a>
+    <a href="index.html#contact-info">Contact Info</a>
+    <a href="org-structure.html">About</a>
+    <a href="organisation-structure.html">Organisation Structure</a>
+<a href="careers.html">Careers</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Learn <span class="blue">GIS</span> <span class="green">Online</span> From Experts</h1>
+  <p>Practical, project-based, job-ready training</p>
+</section>
+
+<div id="courses-container" class="services-grid">
+  <p style="text-align:center; grid-column: 1/-1;">Loading courses...</p>
+</div>
+
+<!-- Enrollment Form Modal -->
+<div id="enrollModal" class="modal-overlay">
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeEnrollModal()">&times;</span>
+    <h2>Enroll in <span id="enrollCourseName"></span></h2>
+    <form id="enrollForm" class="contact-form" style="margin: 20px 0 0;">
+      <input type="text" id="enrollFullName" placeholder="Full Name" required>
+      <input type="text" id="enrollOrg" placeholder="Name of Organization">
+      <input type="tel" id="enrollPhone" placeholder="Phone Number" required>
+      <input type="email" id="enrollEmail" placeholder="Registered Email ID" required>
+      <label style="display:block; margin-bottom:8px; font-weight:600; color:var(--navy);">
+        PhonePe Payment Receipt (JPEG/PNG)
+      </label>
+      <input type="file" id="enrollReceipt" accept=".jpg,.jpeg,.png" required style="margin-bottom:14px;">
+      <button type="submit">Submit Enrollment</button>
+      <p id="enrollStatus" style="margin-top:14px; text-align:center;"></p>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <img src="logo-tagline.png" alt="SpatialEdge Solutions - Precision in Every Pixel" class="footer-logo">
+  <p>&copy; 2026 SpatialEdge Solutions. All rights reserved.</p>
+</footer>
+
+<script>
+  const API_URL = "/api/courses";
+  const ENROLL_URL = "/api/enroll";
+
+  const courseImages = {
+    1: "images/training/qgis.jpg",
+    2: "images/training/arcgis-pro.jpg",
+    3: "images/training/remote-sensing.jpg",
+    4: "images/training/gee.jpg",
+    5: "images/training/python-gis.jpg",
+    6: "images/training/gps-survey.jpg",
+    7: "images/training/cartography.jpg",
+    8: "images/training/spatial-statistics.jpg"
+  };
+
+  const courseSlugMap = {
+    1: "qgis",
+    2: "arcgis-pro",
+    3: "remote-sensing",
+    4: "gee",
+    5: "python-gis",
+    6: "gps-survey",
+    7: "cartography",
+    8: "spatial-statistics"
+  };
+
+  const enrollableCourses = [1, 2, 3, 4, 5];
+
+  let allCourses = [];
+
+  async function loadCourses() {
+    const container = document.getElementById("courses-container");
+    try {
+      const response = await fetch(API_URL);
+      const courses = await response.json();
+      allCourses = courses;
+
+      container.innerHTML = "";
+
+      courses.forEach(course => {
+        const imagePath = courseImages[course.CourseID] || "images/training/default.jpg";
+        const canEnroll = enrollableCourses.includes(course.CourseID);
+
+        const card = document.createElement("div");
+        card.className = "service-card";
+        card.style.backgroundImage = `url('${imagePath}')`;
+        card.style.cursor = "pointer";
+        card.onclick = () => {
+          window.location.href = `course-detail.html?course=${courseSlugMap[course.CourseID]}`;
+        };
+
+        card.innerHTML = `
+          <div class="overlay">
+            <h3>${course.CourseName}</h3>
+            <p class="training-duration">${course.Duration}</p>
+            <div class="training-price">
+              <span class="original">₹${course.OriginalPrice}</span>
+              ₹${course.DiscountedPrice}
+            </div>
+            <p>${course.Description}</p>
+            ${canEnroll ? `<button class="card-enroll-btn" onclick="event.stopPropagation(); openEnrollModal('${course.CourseName.replace(/'/g, "\\'")}')">Enroll Now</button>` : ""}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    } catch (err) {
+      container.innerHTML = "<p style='text-align:center; grid-column:1/-1; color:red;'>Could not load courses. Make sure the server (node server.js) is running.</p>";
+      console.error(err);
+    }
+  }
+
+  function openEnrollModal(courseName) {
+    document.getElementById("enrollCourseName").textContent = courseName;
+    document.getElementById("enrollForm").dataset.course = courseName;
+    document.getElementById("enrollModal").classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeEnrollModal() {
+    document.getElementById("enrollModal").classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+
+  document.getElementById("enrollForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const status = document.getElementById("enrollStatus");
+    const formData = new FormData();
+
+    formData.append("courseName", form.dataset.course);
+    formData.append("fullName", document.getElementById("enrollFullName").value);
+    formData.append("organizationName", document.getElementById("enrollOrg").value);
+    formData.append("phoneNumber", document.getElementById("enrollPhone").value);
+    formData.append("email", document.getElementById("enrollEmail").value);
+    formData.append("receipt", document.getElementById("enrollReceipt").files[0]);
+
+    status.style.color = "black";
+    status.textContent = "Submitting...";
+
+    try {
+      const response = await fetch(ENROLL_URL, {
+        method: "POST",
+        body: formData
+      });
+      const result = await response.json();
+
+      if (response.ok) {
+        status.style.color = "green";
+        status.textContent = "Enrollment submitted successfully! We'll contact you soon.";
+        form.reset();
+      } else {
+        status.style.color = "red";
+        status.textContent = result.error || "Something went wrong.";
+      }
+    } catch (err) {
+      status.style.color = "red";
+      status.textContent = "Could not reach the server. Make sure node server.js is running.";
+      console.error(err);
+    }
+  });
+
+  loadCourses();
+</script>
+
+</body>
+</html>

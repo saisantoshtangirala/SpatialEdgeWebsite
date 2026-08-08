@@ -1,0 +1,20 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for SpatialEdge Solutions (courses, enrollments, inquiries)",
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions,firestore,storage,hosting",
+    "deploy": "firebase deploy --only functions,hosting,firestore:rules,storage:rules"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^5.0.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "private": true
+}

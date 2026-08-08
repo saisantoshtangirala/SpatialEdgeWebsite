@@ -1,0 +1,1235 @@
+<p>QGIS PROFESSIONAL CERTIFICATION POGRAMME</p>
+<p><strong><u>MODULE 1 (BEGINEER LEVEL)</u></strong></p>
+<ol type="1">
+<li><p>Understanding Professional GIS Data</p></li>
+<li><p>Managing Large Spatial Datasets</p></li>
+<li><p>Satellite Image Processing</p></li>
+<li><p>Spatial Analysis</p></li>
+<li><p>Network Analysis</p></li>
+<li><p>Database Management</p></li>
+<li><p>GIS Automation</p></li>
+<li><p>Python Integration</p></li>
+<li><p>Plugin Development</p></li>
+<li><p>Web GIS</p></li>
+<li><p>3D GIS</p></li>
+<li><p>Machine Learning</p></li>
+<li><p>AI in GIS</p></li>
+<li><p>Enterprise GIS</p></li>
+</ol>
+<p><strong><u>MODULE 2 (ADVANCED LEVEL)</u></strong></p>
+<ol start="15" type="1">
+<li><p>Advanced Spatial Database Engineering</p></li>
+<li><p>Advanced Geo-processing Framework</p></li>
+<li><p>PyQGIS Professional Development</p></li>
+<li><p>Professional Plugin Development</p></li>
+<li><p>Advanced Cartographic Engineering</p></li>
+<li><p>Advanced Raster &amp; Remote Sensing Analytics</p></li>
+<li><p>AI &amp; Deep Learning for GIS</p></li>
+<li><p>Machine Learning for Spatial Analytics</p></li>
+<li><p>Cloud GIS &amp; DevOps</p></li>
+</ol>
+<p><strong>CHAPTER - 1</strong></p>
+<p><strong>Understanding Professional GIS Data</strong></p>
+<h2 class="unnumbered" id="learning-objectives"> Learning
+Objectives</h2>
+<p>After completing this chapter, learners will be able to:</p>
+<ul>
+<li><p>Understand how GIS data is structured in different
+industries.</p></li>
+<li><p>Identify the appropriate data model for specific engineering
+applications.</p></li>
+<li><p>Differentiate between utility, cadastral, environmental,
+transportation, drone, and satellite datasets.</p></li>
+<li><p>Select suitable GIS formats and standards for enterprise
+projects.</p></li>
+<li><p>Understand the limitations and quality requirements of spatial
+datasets.</p></li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>GIS data is the digital representation of real-world features,
+events, and phenomena. In professional environments, GIS data is more
+than just points, lines, and polygons—it is a structured information
+system that supports planning, engineering, asset management,
+environmental monitoring, emergency response, and decision-making.</p>
+<p>Every industry organizes GIS data differently based on its
+operational needs. For example, a transportation department manages road
+centerlines, bridges, and traffic networks, while an electric utility
+company maintains substations, transformers, and power distribution
+networks. Although all these datasets use geographic coordinates, their
+attributes, accuracy requirements, update frequency, and regulatory
+standards differ significantly.</p>
+<p>A GIS professional must understand not only how to create spatial
+data but also how it is designed, maintained, and integrated into
+enterprise workflows.</p>
+<h1 id="engineering-gis-data">Engineering GIS Data</h1>
+<h2 id="overview">Overview</h2>
+<p>Engineering GIS focuses on the planning, design, construction, and
+maintenance of civil infrastructure. It integrates CAD, BIM, survey
+data, LiDAR, and GIS into a single geospatial environment.</p>
+<p>Unlike conventional mapping, engineering GIS emphasizes positional
+accuracy, engineering standards, and lifecycle management of assets.</p>
+<p>Typical engineering projects include:</p>
+<ul>
+<li><p>Highways</p></li>
+<li><p>Railways</p></li>
+<li><p>Airports</p></li>
+<li><p>Metro Systems</p></li>
+<li><p>Water Supply Networks</p></li>
+<li><p>Irrigation Projects</p></li>
+<li><p>Smart Cities</p></li>
+<li><p>Industrial Corridors</p></li>
+<li><p>Bridges</p></li>
+<li><p>Dams</p></li>
+</ul>
+<ol start="2" type="1">
+<li><p>Typical GIS Layers</p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 19%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Layer</th>
+<th>Geometry</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Road Centerline</td>
+<td>Line</td>
+<td>Road alignment</td>
+</tr>
+<tr class="even">
+<td>Bridges</td>
+<td>Polygon</td>
+<td>Bridge structures</td>
+</tr>
+<tr class="odd">
+<td>Culverts</td>
+<td>Point</td>
+<td>Drainage crossings</td>
+</tr>
+<tr class="even">
+<td>Utilities</td>
+<td>Line</td>
+<td>Underground pipelines</td>
+</tr>
+<tr class="odd">
+<td>Buildings</td>
+<td>Polygon</td>
+<td>Infrastructure footprints</td>
+</tr>
+<tr class="even">
+<td>Survey Points</td>
+<td>Point</td>
+<td>Ground control points</td>
+</tr>
+<tr class="odd">
+<td>DEM</td>
+<td>Raster</td>
+<td>Terrain elevation</td>
+</tr>
+<tr class="even">
+<td>Land Parcels</td>
+<td>Polygon</td>
+<td>Property boundaries</td>
+</tr>
+</tbody>
+</table>
+<p>Utility GIS</p>
+<p><strong>Overview</strong></p>
+<p>Utility GIS manages infrastructure networks that deliver essential
+services such as electricity, water, gas, telecommunications, and
+sewerage.</p>
+<p>Unlike engineering GIS, utility GIS maintains connectivity and
+network relationships between assets.</p>
+<p><strong>Utility Sectors</strong></p>
+<ul>
+<li><p>Electricity</p></li>
+<li><p>Water Supply</p></li>
+<li><p>Sewerage</p></li>
+<li><p>Storm Water</p></li>
+<li><p>Gas Distribution</p></li>
+<li><p>Fiber Optic Networks</p></li>
+<li><p>Street Lighting</p>
+<p>Typical Layers</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Layer</th>
+<th>Geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Transformer</td>
+<td>Point</td>
+</tr>
+<tr class="even">
+<td>Electric Pole</td>
+<td>Point</td>
+</tr>
+<tr class="odd">
+<td>Distribution Line</td>
+<td>Line</td>
+</tr>
+<tr class="even">
+<td>Water Pipeline</td>
+<td>Line</td>
+</tr>
+<tr class="odd">
+<td>Water Valve</td>
+<td>Point</td>
+</tr>
+<tr class="even">
+<td>Manhole</td>
+<td>Point</td>
+</tr>
+<tr class="odd">
+<td>Sewer Network</td>
+<td>Line</td>
+</tr>
+<tr class="even">
+<td>Substation</td>
+<td>Polygon</td>
+</tr>
+</tbody>
+</table>
+<p>Government GIS</p>
+<p><strong>Overview</strong></p>
+<p>Government GIS supports planning, governance, taxation, emergency
+response, public services, and infrastructure development.</p>
+<p>Government GIS integrates data from multiple departments into a
+centralized geospatial platform.</p>
+<p>Departments include:</p>
+<ul>
+<li><p>Revenue</p></li>
+<li><p>Municipal Administration</p></li>
+<li><p>Forest</p></li>
+<li><p>Agriculture</p></li>
+<li><p>Disaster Management</p></li>
+<li><p>Police</p></li>
+<li><p>Public Works</p></li>
+<li><p>Rural Development</p></li>
+</ul>
+<ol start="5" type="1">
+<li><p><strong>Typical Layers</strong></p></li>
+</ol>
+<ul>
+<li><p>Administrative Boundaries</p></li>
+<li><p>Villages</p></li>
+<li><p>Roads</p></li>
+<li><p>Schools</p></li>
+<li><p>Hospitals</p></li>
+<li><p>Water Bodies</p></li>
+<li><p>Government Buildings</p></li>
+<li><p>Census Data</p></li>
+</ul>
+<ol start="5" type="1">
+<li><p><strong>Applications</strong></p></li>
+</ol>
+<ul>
+<li><p>Smart Cities</p></li>
+<li><p>Property Tax</p></li>
+<li><p>Census Mapping</p></li>
+<li><p>Election Planning</p></li>
+<li><p>Disaster Management</p></li>
+<li><p>Public Asset Monitoring</p>
+<p>Environmental GIS</p>
+<p><strong>Overview</strong></p></li>
+</ul>
+<p>Environmental GIS monitors natural resources, ecosystems,
+biodiversity, and environmental change.</p>
+<p>Environmental GIS combines satellite imagery, field observations,
+climate data, and environmental models.</p>
+<ol start="6" type="1">
+<li><p><strong>Typical Layers</strong></p></li>
+</ol>
+<ul>
+<li><p>Forest Cover</p></li>
+<li><p>Rivers</p></li>
+<li><p>Lakes</p></li>
+<li><p>Wetlands</p></li>
+<li><p>Protected Areas</p></li>
+<li><p>Wildlife Corridors</p></li>
+<li><p>Rainfall</p></li>
+<li><p>Temperature</p></li>
+<li><p>Air Quality</p></li>
+</ul>
+<ol start="6" type="1">
+<li><p><strong>Applications</strong></p></li>
+</ol>
+<ul>
+<li><p>Forest Monitoring</p></li>
+<li><p>Flood Mapping</p></li>
+<li><p>Drought Assessment</p></li>
+<li><p>Climate Change Studies</p></li>
+<li><p>Wildlife Habitat Analysis</p></li>
+<li><p>Water Resource Management</p>
+<p>Cadastral GIS</p></li>
+</ul>
+<h2 id="overview-1">Overview</h2>
+<p>Cadastral GIS manages land ownership, legal boundaries, survey
+records, and property taxation.</p>
+<p>This is one of the most accurate forms of GIS because legal ownership
+depends on spatial accuracy.</p>
+<table>
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Layer</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Parcel Boundary</td>
+<td>Land ownership</td>
+</tr>
+<tr class="even">
+<td>Survey Number</td>
+<td>Parcel identifier</td>
+</tr>
+<tr class="odd">
+<td>Ownership</td>
+<td>Landowner details</td>
+</tr>
+<tr class="even">
+<td>Land Use</td>
+<td>Current utilization</td>
+</tr>
+<tr class="odd">
+<td>Mutation Records</td>
+<td>Ownership changes</td>
+</tr>
+<tr class="even">
+<td>Registration Details</td>
+<td>Legal records</td>
+</tr>
+</tbody>
+</table>
+<p>Transportation GIS</p>
+<ol start="8" type="1">
+<li><p><strong>Overview</strong></p></li>
+</ol>
+<p>Transportation GIS supports planning, operation, and maintenance of
+transportation networks.</p>
+<ol start="8" type="1">
+<li><p><strong>Networks</strong></p></li>
+</ol>
+<ul>
+<li><p>Highways</p></li>
+<li><p>Railways</p></li>
+<li><p>Metro</p></li>
+<li><p>Airports</p></li>
+<li><p>Ports</p></li>
+<li><p>Bus Routes</p></li>
+</ul>
+<p><strong>8.3 GIS Layers</strong></p>
+<ul>
+<li><p>Road Centerline</p></li>
+<li><p>Bridges</p></li>
+<li><p>Culverts</p></li>
+<li><p>Traffic Signals</p></li>
+<li><p>Speed Limits</p></li>
+<li><p>Accident Locations</p></li>
+<li><p>Toll Plazas</p></li>
+</ul>
+<p><strong>8.4 Applications</strong></p>
+<ul>
+<li><p>Route Optimization</p></li>
+<li><p>Asset Inventory</p></li>
+<li><p>Pavement Management</p></li>
+<li><p>Traffic Analysis</p></li>
+<li><p>Public Transport Planning</p></li>
+</ul>
+<p><strong>QGIS PROFESSIONAL CERTIFICATION</strong></p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 27%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>Title</th>
+<th>Objective</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Professional GIS Workspace &amp; Project Management</td>
+<td>Industry project organization</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Enterprise Spatial Data Management</td>
+<td>Professional vector/raster data handling</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Advanced Editing &amp; Topology</td>
+<td>Production-quality data creation</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Coordinate Systems &amp; Spatial Reference Frameworks</td>
+<td>Engineering-grade coordinate management</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Data Preparation &amp; Quality Assurance</td>
+<td>Cleaning, validation and QA/QC</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Professional Cartography &amp; Map Production</td>
+<td>Publication-ready map design</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Raster Processing &amp; Image Enhancement</td>
+<td>Core raster workflows</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Remote Sensing Applications using QGIS</td>
+<td>Satellite image interpretation and applications</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Terrain Analysis &amp; DEM Processing</td>
+<td>DEM, DSM, slope, watershed analysis</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Spatial Analysis &amp; Suitability Modelling</td>
+<td>Overlay, MCDA, site suitability</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Hydrology &amp; Environmental GIS</td>
+<td>Watershed, runoff, groundwater</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Transportation &amp; Network Analysis</td>
+<td>Roads, routing, logistics</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>GPS, Survey &amp; Field Data Collection</td>
+<td>GNSS, field workflows, mobile GIS</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Database Integration with QGIS</td>
+<td>GeoPackage, PostGIS fundamentals</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Model Builder &amp; Processing Toolbox</td>
+<td>Workflow automation without coding</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Introduction to PyQGIS</td>
+<td>Python scripting fundamentals</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>QGIS Server &amp; Basic Web GIS</td>
+<td>Publishing maps and services</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>Industry Mini Projects &amp; Certification Assessment</td>
+<td>End-to-end practical projects</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>Enterprise GIS Architecture</td>
+<td>Design scalable enterprise GIS systems, Spatial Data Infrastructure
+(SDI), governance, security, and high-availability architectures for
+national and organizational deployments.</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>Advanced Spatial Database Engineering</td>
+<td>Build, optimize, and manage enterprise spatial databases using
+PostgreSQL/PostGIS, advanced Spatial SQL, topology, replication, and
+performance tuning.</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>Geospatial Software Engineering</td>
+<td>Apply software engineering principles to GIS applications, including
+architecture, object-oriented programming, REST APIs, Git workflows,
+testing, and CI/CD.</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>Professional PyQGIS Development</td>
+<td>Develop high-performance PyQGIS applications using the QGIS API,
+geometry engine, rendering engine, task manager, multithreading, and
+optimization techniques.</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>QGIS Plugin Engineering</td>
+<td>Design, develop, test, package, and publish professional QGIS
+plugins with custom interfaces, processing algorithms, toolbars, and
+PyQt-based GUI development.</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>Enterprise Geoprocessing Frameworks</td>
+<td>Create enterprise-scale automated geoprocessing workflows using
+Model Builder, Processing Toolbox, batch automation, logging, error
+handling, and custom providers.</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>Advanced Cartographic Engineering</td>
+<td>Produce government and publication-quality maps using advanced
+cartographic design, multi-scale mapping, atlas automation, and
+cartographic standards.</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>Advanced Remote Sensing Analytics</td>
+<td>Perform advanced image analysis including hyperspectral processing,
+SAR interpretation, OBIA, multi-temporal analysis, texture analysis, and
+accuracy assessment.</td>
+</tr>
+<tr class="odd">
+<td>27</td>
+<td>Machine Learning for Geospatial Applications</td>
+<td>Develop spatial machine learning models using Random Forest,
+XGBoost, SVM, clustering, regression, predictive modelling, and
+Explainable AI techniques.</td>
+</tr>
+<tr class="even">
+<td>28</td>
+<td>GeoAI &amp; Deep Learning</td>
+<td>Apply deep learning techniques including CNNs, U-Net, YOLO, Segment
+Anything (SAM), and foundation models for automated feature extraction
+and intelligent mapping.</td>
+</tr>
+<tr class="odd">
+<td>29</td>
+<td>Cloud-Native GIS</td>
+<td>Implement cloud-native geospatial workflows using Docker, cloud
+storage, Cloud-Optimized GeoTIFFs (COGs), STAC, deployment pipelines,
+and monitoring systems.</td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td>Enterprise Web GIS</td>
+<td>Build enterprise web GIS platforms using QGIS Server, GeoServer,
+vector tiles, OpenLayers, Leaflet, CesiumJS, authentication, caching,
+and portal integration.</td>
+</tr>
+<tr class="odd">
+<td>31</td>
+<td>Big Geospatial Data Engineering</td>
+<td>Process and manage large-scale geospatial datasets using GeoParquet,
+Apache Spark, distributed computing, data lakes, streaming data, and IoT
+integration.</td>
+</tr>
+<tr class="even">
+<td>32</td>
+<td>3D GIS, LiDAR &amp; Digital Twins</td>
+<td>Develop advanced 3D GIS solutions using LiDAR, point clouds, BIM-GIS
+integration, Cesium 3D Tiles, CityGML, and Digital Twin
+technologies.</td>
+</tr>
+<tr class="odd">
+<td>33</td>
+<td>Spatial Decision Support Systems</td>
+<td>Design spatial decision support systems using MCDA, AHP, fuzzy
+overlay, risk analysis, scenario modelling, optimization, and decision
+dashboards.</td>
+</tr>
+<tr class="even">
+<td>34</td>
+<td>Enterprise GIS Project Management &amp; DevOps</td>
+<td>Manage enterprise GIS projects through Agile methodologies, DevOps
+practices, version control, deployment strategies, infrastructure
+management, documentation, and quality assurance.</td>
+</tr>
+<tr class="odd">
+<td>35</td>
+<td>Enterprise Capstone Project &amp; Professional Certification</td>
+<td>Integrate enterprise GIS architecture, databases, automation, GeoAI,
+Web GIS, cloud deployment, and decision-support systems into a complete
+industry-scale geospatial solution demonstrating professional
+competency.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SpatialEdge Solutions™</strong></p>
+<p><strong>Professional QGIS Certification Examination</strong></p>
+<p><strong>Question Paper Framework (50 Marks)</strong></p>
+<p><strong>Course:</strong> Professional QGIS (Beginner–Intermediate /
+Advanced)<br />
+<strong>Duration:</strong> 3 Hours<br />
+<strong>Maximum Marks:</strong> 50</p>
+<p><strong>Instructions</strong></p>
+<ol type="1">
+<li><p>Answer <strong>all questions</strong> from <strong>Section
+A</strong>.</p></li>
+<li><p>Answer <strong>any ONE</strong> question from <strong>Section
+B</strong>.</p></li>
+<li><p>Practical work must be performed using
+<strong>QGIS</strong>.</p></li>
+<li><p>Save all outputs in the folder provided by the examiner.</p></li>
+<li><p>Submit:</p>
+<ul>
+<li><p>QGIS Project (.qgz)</p></li>
+<li><p>GeoPackage/Shapefile</p></li>
+<li><p>Layout Map (PDF)</p></li>
+<li><p>Screenshots (if required)</p></li>
+</ul></li>
+</ol>
+<p><strong>Question Paper Pattern</strong></p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 51%" />
+<col style="width: 17%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Section</th>
+<th>Type</th>
+<th>Questions</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Section A</td>
+<td>Multiple Choice Questions</td>
+<td>20 × 1</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>Section B</td>
+<td>Practical (Attempt Any ONE of Three)</td>
+<td>1 × 30</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td></td>
+<td></td>
+<td><strong>50 Marks</strong></td>
+</tr>
+</tbody>
+</table>
+<p>SAMPLE QUESTION PAPER</p>
+<p><strong>SECTION A – Multiple Choice Questions (20 × 1 = 20
+Marks)</strong></p>
+<p>Choose the correct answer.</p>
+<ol type="1">
+<li><p>Which file format is the default QGIS project file?</p>
+<ul>
+<li><p>a) .mxd</p></li>
+<li><p>b) .qgz</p></li>
+<li><p>c) .aprx</p></li>
+<li><p>d) .gdb</p></li>
+</ul></li>
+<li><p>Which database format is recommended for storing multiple vector
+layers in QGIS?</p>
+<ul>
+<li><p>a) CSV</p></li>
+<li><p>b) GeoPackage</p></li>
+<li><p>c) JPEG</p></li>
+<li><p>d) PDF</p></li>
+</ul></li>
+<li><p>Which CRS is commonly used for GPS coordinates?</p>
+<ul>
+<li><p>a) EPSG:3857</p></li>
+<li><p>b) EPSG:32644</p></li>
+<li><p>c) EPSG:4326</p></li>
+<li><p>d) EPSG:24378</p></li>
+</ul></li>
+<li><p>Which QGIS tool is used to merge adjacent polygons?</p>
+<ul>
+<li><p>a) Buffer</p></li>
+<li><p>b) Dissolve</p></li>
+<li><p>c) Clip</p></li>
+<li><p>d) Union</p></li>
+</ul></li>
+<li><p>Which plugin provides satellite imagery in QGIS?</p>
+<ul>
+<li><p>a) QuickMapServices</p></li>
+<li><p>b) DataPlotly</p></li>
+<li><p>c) DB Manager</p></li>
+<li><p>d) MetaSearch</p></li>
+</ul></li>
+</ol>
+<p>...</p>
+<p>Continue to Question 20 covering:</p>
+<p><strong>SECTION B – Practical Examination (30 Marks)</strong></p>
+<p><strong>Answer ANY ONE question.</strong></p>
+<p><strong>Q1) Utility GIS Database Creation</strong></p>
+<p>A municipality has provided a satellite image, road layer, and water
+pipeline CAD drawing.</p>
+<p>Perform the following tasks:</p>
+<ol type="1">
+<li><p>Create a new QGIS project.</p></li>
+<li><p>Set the project CRS to the appropriate UTM zone.</p></li>
+<li><p>Create a GeoPackage named
+<strong>UtilityGIS.gpkg</strong>.</p></li>
+<li><p>Create the following layers:</p>
+<ul>
+<li><p>Water Pipeline</p></li>
+<li><p>Valves</p></li>
+<li><p>Reservoir</p></li>
+<li><p>Buildings</p></li>
+</ul></li>
+<li><p>Digitize the supplied utility features.</p></li>
+<li><p>Create appropriate attribute fields.</p></li>
+<li><p>Apply categorized symbology.</p></li>
+<li><p>Label all valves using Valve_ID.</p></li>
+<li><p>Validate topology.</p></li>
+<li><p>Create a professional A3 layout with:</p>
+<ul>
+<li><p>Title</p></li>
+<li><p>North Arrow</p></li>
+<li><p>Scale Bar</p></li>
+<li><p>Legend</p></li>
+<li><p>Coordinate Grid</p></li>
+</ul></li>
+<li><p>Export the layout as PDF.</p></li>
+</ol>
+<p><strong>Marking Scheme</strong></p>
+<table>
+<colgroup>
+<col style="width: 68%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Project Creation</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>GeoPackage</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>Digitization</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>Attributes</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Symbology</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Labels</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Topology</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Layout</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>PDF Export</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td><strong>30</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Q2) Land Suitability Analysis</strong></p>
+<p>A planning department requires identification of suitable locations
+for a new healthcare facility.</p>
+<p>Perform the following tasks:</p>
+<ol type="1">
+<li><p>Load the supplied datasets:</p>
+<ul>
+<li><p>Roads</p></li>
+<li><p>Villages</p></li>
+<li><p>DEM</p></li>
+<li><p>Rivers</p></li>
+<li><p>Land Use</p></li>
+</ul></li>
+<li><p>Reproject all layers to a common CRS.</p></li>
+<li><p>Generate:</p>
+<ul>
+<li><p>Slope map</p></li>
+<li><p>500 m road buffer</p></li>
+<li><p>200 m river buffer</p></li>
+</ul></li>
+<li><p>Perform overlay analysis.</p></li>
+<li><p>Create a land suitability map with:</p>
+<ul>
+<li><p>High</p></li>
+<li><p>Moderate</p></li>
+<li><p>Low suitability</p></li>
+</ul></li>
+<li><p>Calculate the total area of highly suitable land.</p></li>
+<li><p>Prepare an A3 layout.</p></li>
+<li><p>Export the final map as PDF.</p></li>
+</ol>
+<blockquote>
+<p><strong>Marking Scheme</strong></p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 75%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data Preparation</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Buffer Analysis</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Slope Analysis</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Overlay Analysis</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>Suitability Classification</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Layout &amp; Export</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td><strong>30</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Q3) Satellite Image Processing &amp; Cartographic
+Output</strong></p>
+<p>A recent Sentinel-2 image has been provided for land-cover
+mapping.</p>
+<p>Perform the following tasks:</p>
+<ol type="1">
+<li><p>Open the raster dataset.</p></li>
+<li><p>Create a natural color composite.</p></li>
+<li><p>Calculate NDVI using the Raster Calculator.</p></li>
+<li><p>Classify NDVI into:</p>
+<ul>
+<li><p>Water</p></li>
+<li><p>Built-up</p></li>
+<li><p>Sparse Vegetation</p></li>
+<li><p>Dense Vegetation</p></li>
+</ul></li>
+<li><p>Apply an appropriate color scheme.</p></li>
+<li><p>Extract dense vegetation areas.</p></li>
+<li><p>Calculate the area (in hectares) of dense vegetation.</p></li>
+<li><p>Create a professional map layout including:</p>
+<ul>
+<li><p>Title</p></li>
+<li><p>Legend</p></li>
+<li><p>Scale Bar</p></li>
+<li><p>North Arrow</p></li>
+<li><p>Coordinate Grid</p></li>
+</ul></li>
+<li><p>Export the layout as PDF.</p></li>
+</ol>
+<p><strong>Marking Scheme</strong></p>
+<table>
+<colgroup>
+<col style="width: 70%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Raster Processing</td>
+<td><strong>5</strong></td>
+</tr>
+<tr class="even">
+<td>NDVI Calculation</td>
+<td><strong>6</strong></td>
+</tr>
+<tr class="odd">
+<td>Classification</td>
+<td><strong>5</strong></td>
+</tr>
+<tr class="even">
+<td>Area Calculation</td>
+<td><strong>4</strong></td>
+</tr>
+<tr class="odd">
+<td>Symbology</td>
+<td><strong>4</strong></td>
+</tr>
+<tr class="even">
+<td>Layout &amp; Export</td>
+<td><strong>6</strong></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td><strong>30</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Overall Assessment Criteria</strong></p>
+<table>
+<colgroup>
+<col style="width: 73%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Marks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Multiple Choice Questions</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>Practical Examination</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>Grand Total</td>
+<td><strong>50 Mark</strong></td>
+</tr>
+</tbody>
+</table>
+<p>This framework balances theoretical understanding (40% of the marks)
+with hands-on QGIS proficiency (60%), making it suitable for a
+professional certification examination. It can be reused across modules
+by changing the practical scenario (e.g., Utility GIS, Remote Sensing,
+Hydrology, Transportation, or Database Management) while keeping the
+same overall examination structure.</p>
+<p><strong>SpatialEdge Solutions™</strong></p>
+<p><strong>Professional Certification Evaluation System</strong></p>
+<p><strong>Total Marks</strong></p>
+<p><strong>50</strong></p>
+<p><strong>Percentage Formula</strong></p>
+<p><span class="math display">$$\text{Percentage} = \left(
+\frac{\text{Marks~Obtained}}{50} \right) \times 100
+$$</span></p>
+<p><strong>Examples</strong></p>
+<table>
+<colgroup>
+<col style="width: 58%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Marks Obtained</th>
+<th>Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>50</td>
+<td>100%</td>
+</tr>
+<tr class="even">
+<td>49</td>
+<td>98%</td>
+</tr>
+<tr class="odd">
+<td>48</td>
+<td>96%</td>
+</tr>
+<tr class="even">
+<td>45</td>
+<td>90%</td>
+</tr>
+<tr class="odd">
+<td>40</td>
+<td>80%</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td>70%</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>60%</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>50%</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>40%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Grade Classification</strong></p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 31%" />
+<col style="width: 12%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Percentage</th>
+<th>Marks (Out of 50)</th>
+<th>Grade</th>
+<th>Performance Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>90–100%</td>
+<td><strong>45–50</strong></td>
+<td><strong>A+</strong></td>
+<td>Outstanding</td>
+</tr>
+<tr class="even">
+<td>80–89.99%</td>
+<td><strong>40–44</strong></td>
+<td><strong>A</strong></td>
+<td>Excellent</td>
+</tr>
+<tr class="odd">
+<td>70–79.99%</td>
+<td><strong>35–39</strong></td>
+<td><strong>B+</strong></td>
+<td>Very Good</td>
+</tr>
+<tr class="even">
+<td>60–69.99%</td>
+<td><strong>30–34</strong></td>
+<td><strong>B</strong></td>
+<td>Good</td>
+</tr>
+<tr class="odd">
+<td>50–59.99%</td>
+<td><strong>25–29</strong></td>
+<td><strong>C</strong></td>
+<td>Satisfactory</td>
+</tr>
+<tr class="even">
+<td>40–49.99%</td>
+<td><strong>20–24</strong></td>
+<td><strong>D</strong></td>
+<td>Needs Improvement</td>
+</tr>
+<tr class="odd">
+<td>Below 40%</td>
+<td><strong>0–19</strong></td>
+<td><strong>F</strong></td>
+<td>Not Qualified</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Certification Status</strong></p>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Percentage</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>≥ 50%</td>
+<td><strong>Pass</strong></td>
+</tr>
+<tr class="even">
+<td>&lt; 50%</td>
+<td><strong>Fail</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Merit Classification</strong></p>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Percentage</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>90–100%</td>
+<td>Distinction with Honors</td>
+</tr>
+<tr class="even">
+<td>80–89.99%</td>
+<td>First Class with Distinction</td>
+</tr>
+<tr class="odd">
+<td>70–79.99%</td>
+<td>First Class</td>
+</tr>
+<tr class="even">
+<td>60–69.99%</td>
+<td>Second Class</td>
+</tr>
+<tr class="odd">
+<td>50–59.99%</td>
+<td>Pass Class</td>
+</tr>
+<tr class="even">
+<td>Below 50%</td>
+<td>Not Qualified</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample Result Sheet</strong></p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 14%" />
+<col style="width: 18%" />
+<col style="width: 13%" />
+<col style="width: 16%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Candidate</th>
+<th>MCQ (20)</th>
+<th>Practical (30)</th>
+<th>Total (50)</th>
+<th>Percentage</th>
+<th>Grade</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Candidate A</td>
+<td>18</td>
+<td>27</td>
+<td>45</td>
+<td>90.00%</td>
+<td>A+</td>
+<td>Pass</td>
+</tr>
+<tr class="even">
+<td>Candidate B</td>
+<td>16</td>
+<td>24</td>
+<td>40</td>
+<td>80.00%</td>
+<td>A</td>
+<td>Pass</td>
+</tr>
+<tr class="odd">
+<td>Candidate C</td>
+<td>14</td>
+<td>22</td>
+<td>36</td>
+<td>72.00%</td>
+<td>B+</td>
+<td>Pass</td>
+</tr>
+<tr class="even">
+<td>Candidate D</td>
+<td>12</td>
+<td>18</td>
+<td>30</td>
+<td>60.00%</td>
+<td>B</td>
+<td>Pass</td>
+</tr>
+<tr class="odd">
+<td>Candidate E</td>
+<td>10</td>
+<td>15</td>
+<td>25</td>
+<td>50.00%</td>
+<td>C</td>
+<td>Pass</td>
+</tr>
+<tr class="even">
+<td>Candidate F</td>
+<td>8</td>
+<td>11</td>
+<td>19</td>
+<td>38.00%</td>
+<td>F</td>
+<td>Fail</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended Certification Categories</strong></p>
+<p>You can print one of the following on the certificate based on the
+candidate's score:</p>
+<ul>
+<li><p><strong>A+</strong> – <em>Certified with
+Distinction</em></p></li>
+<li><p><strong>A</strong> – <em>Certified with Excellence</em></p></li>
+<li><p><strong>B+</strong> – <em>Certified with Merit</em></p></li>
+<li><p><strong>B</strong> – <em>Certified Professional</em></p></li>
+<li><p><strong>C</strong> – <em>Certified (Pass)</em></p></li>
+<li><p><strong>D / F</strong> – <em>Certificate Not Awarded (Did Not
+Meet Passing Requirements)</em></p></li>
+</ul>
+<p>This evaluation system is transparent, easy to calculate, and
+suitable for <strong>SpatialEdge Solutions™ Professional GIS
+Certification Programs</strong></p>

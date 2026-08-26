@@ -234,13 +234,29 @@
 
 <script src="team-data.js"></script>
 <script>
+  let _lastModifiedEl = null;
+  let _lastModifiedOriginal = null;
+
   function openTeamModal(id, el) {
     const person = teamMembers[id];
     const content = document.getElementById("teamModalContent");
 
-    // If an element was provided (the clicked node), update it to show the person's name
-    if (el && person && person.name) {
-      el.innerHTML = `${person.title}<br><span class="chart-name" style="display:block;font-size:0.85rem;color:#0a6;font-weight:600;">${person.name}</span>`;
+    // Only show the name inside the chart node for these roles (not for Managing Director)
+    const inlineShowIds = new Set(["SE-002", "SE-003", "SE-005"]);
+
+    if (el && person && person.name && inlineShowIds.has(id)) {
+      // revert previous modified node if any
+      if (_lastModifiedEl && _lastModifiedEl !== el) {
+        _lastModifiedEl.innerHTML = _lastModifiedOriginal;
+        _lastModifiedEl = null;
+        _lastModifiedOriginal = null;
+      }
+
+      if (!_lastModifiedEl) {
+        _lastModifiedEl = el;
+        _lastModifiedOriginal = el.innerHTML;
+        el.innerHTML = `${person.title}<br><span class="chart-name" style="display:block;font-size:0.85rem;color:#0a6;font-weight:600;">${person.name}</span>`;
+      }
     }
 
     content.innerHTML = `
@@ -263,6 +279,13 @@
   function closeTeamModal() {
     document.getElementById("teamModal").classList.remove("active");
     document.body.style.overflow = "auto";
+
+    // revert any inline name shown in the chart node
+    if (_lastModifiedEl && _lastModifiedOriginal) {
+      _lastModifiedEl.innerHTML = _lastModifiedOriginal;
+      _lastModifiedEl = null;
+      _lastModifiedOriginal = null;
+    }
   }
 </script>
 

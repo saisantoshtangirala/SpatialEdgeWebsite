@@ -63,7 +63,7 @@ const teamMembers = {
     ]
   },
   "SE-004": {
-    "name": "M B Sruthi",
+    "name": "",
     "title": "IT Manager",
     "expertise": [
       "Enterprise IT Infrastructure",

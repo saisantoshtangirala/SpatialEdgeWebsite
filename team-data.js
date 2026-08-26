@@ -21,7 +21,7 @@ const teamMembers = {
     ]
   },
   "SE-002": {
-    "name": "Executive Director",
+    "name": "NARESH KUMAR NEELOJU",
     "title": "Executive Director",
     "expertise": [
       "Business Operations",
@@ -42,7 +42,7 @@ const teamMembers = {
     ]
   },
   "SE-003": {
-    "name": "P. Raja Sekhar",
+    "name": "RAJASEKHAR PALADUGU",
     "title": "Technical Director",
     "expertise": [
       "GIS & Remote Sensing Technologies",
@@ -85,7 +85,7 @@ const teamMembers = {
     ]
   },
   "SE-005": {
-    "name": "M Sindhuja",
+    "name": "BALA SRUTHI MADDURI",
     "title": "Support Manager",
     "expertise": [
       "Customer Support",

@@ -33,43 +33,43 @@
   <div class="org-chart">
     <ul>
       <li>
-        <div class="chart-node top clickable" onclick="openTeamModal('SE-001')">Managing Director</div>
+        <div class="chart-node top clickable" onclick="openTeamModal('SE-001', this)">Managing Director</div>
         <ul>
           <li>
-            <div class="chart-node top clickable" onclick="openTeamModal('SE-002')">Executive Director</div>
+            <div class="chart-node top clickable" onclick="openTeamModal('SE-002', this)">Executive Director</div>
             <ul>
               <li>
-                <div class="chart-node top clickable" onclick="openTeamModal('SE-003')">Technical Director</div>
+                <div class="chart-node top clickable" onclick="openTeamModal('SE-003', this)">Technical Director</div>
                 <ul>
                   <li>
-                    <div class="chart-node clickable" onclick="openTeamModal('SE-004')">IT Manager</div>
+                    <div class="chart-node clickable" onclick="openTeamModal('SE-004', this)">IT Manager</div>
                     <ul>
                       <li><div class="chart-node leaf">Python Automation Team</div></li>
                       <li><div class="chart-node leaf">Web GIS & GEE Team</div></li>
                     </ul>
                   </li>
                   <li>
-                    <div class="chart-node clickable" onclick="openTeamModal('SE-005')">Support Manager</div>
+                    <div class="chart-node clickable" onclick="openTeamModal('SE-005', this)">Support Manager</div>
                     <ul>
                       <li><div class="chart-node leaf">Support Team</div></li>
                       <li><div class="chart-node leaf">GIS & Remote Sensing Team</div></li>
                     </ul>
                   </li>
                   <li>
-                    <div class="chart-node clickable" onclick="openTeamModal('SE-006')">Sales Manager</div>
+                    <div class="chart-node clickable" onclick="openTeamModal('SE-006', this)">Sales Manager</div>
                     <ul>
                       <li><div class="chart-node leaf">Sales Executives</div></li>
                     </ul>
                   </li>
                   <li>
-                    <div class="chart-node clickable" onclick="openTeamModal('SE-007')">Production Manager</div>
+                    <div class="chart-node clickable" onclick="openTeamModal('SE-007', this)">Production Manager</div>
                     <ul>
                       <li><div class="chart-node leaf">Production Supervisors</div></li>
                       <li><div class="chart-node leaf">QA / QC Team</div></li>
                     </ul>
                   </li>
                   <li>
-                    <div class="chart-node clickable" onclick="openTeamModal('SE-008')">Finance Manager</div>
+                    <div class="chart-node clickable" onclick="openTeamModal('SE-008', this)">Finance Manager</div>
                     <ul>
                       <li><div class="chart-node leaf">Account Manager</div></li>
                       <li><div class="chart-node leaf">HR</div></li>
@@ -234,9 +234,14 @@
 
 <script src="team-data.js"></script>
 <script>
-  function openTeamModal(id) {
+  function openTeamModal(id, el) {
     const person = teamMembers[id];
     const content = document.getElementById("teamModalContent");
+
+    // If an element was provided (the clicked node), update it to show the person's name
+    if (el && person && person.name) {
+      el.innerHTML = `${person.title}<br><span class="chart-name" style="display:block;font-size:0.85rem;color:#0a6;font-weight:600;">${person.name}</span>`;
+    }
 
     content.innerHTML = `
       <div style="text-align:center;">
